@@ -1,11 +1,14 @@
 import java.util.*;
-public class user{
+public class user extends atm{
     String username;
     long accno;
     long mobileno;
     int accpin;
     double balance;
     String bank;
+    public user(){
+
+    }
     public user(String username,long accno,long mobileno,int accpin,double balance,String bank){
         this.username=username;
         this.accno=accno;
@@ -16,6 +19,7 @@ public class user{
     }
     public void deposit(int amount){
         balance=amount+balance;
+        atm_amount-=amount;
         System.out.println("Amount of Rupees:"+amount+"has been credited");
     }
     public void withdraw(int amount){
