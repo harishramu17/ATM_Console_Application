@@ -3,8 +3,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class atm {
+public class atm{
     static List<user>details=new ArrayList<>();
+    static double atm_amount=100000;
     public static void main(String[] args) {
         user us1=new user("kumar",11111,98765432,1000,50,"KVB");
         user us2=new user("sam",22222,98765432,2000,500,"SBI");
@@ -21,8 +22,9 @@ public class atm {
         System.out.println("ATM operations");
         boolean flag=true;
         do{
-           System.out.println("Press 1 for new user");
-           System.out.println("Press 2 for existing user");
+           System.out.println("Press 1 for New User");
+           System.out.println("Press 2 for Existing User");
+           System.out.println("Press 3 for Admin");
            int choice=sc.nextInt();
            switch(choice){
             case 1:
@@ -43,10 +45,9 @@ public class atm {
             case 2:
                 System.out.println("Enter your account number:");
                 long acntnum=sc.nextLong();
-                boolean validacnt=false;
                 for(user val:details){
                     if(acntnum==val.accno){
-                        validacnt=true;
+                        System.out.println("Hi! "+val.username);
                         System.out.println("Enter your account pin:");
                         long acntpin=sc.nextLong();
                         while(acntpin!=val.accpin){
@@ -89,8 +90,23 @@ public class atm {
                         }                
                     }
                 }
-
+            case 3:
+                admin ad=new admin();
+                System.out.println("Press 1.ATM Balance check");
+                System.out.println("Press 2.Amount deposit to ATM");
+                int choie3=sc.nextInt();
+                if(choie3==1){
+                    ad.atm_bal_check();
+                }
+                else{
+                    System.out.println("Enter the amount to be deposited:");
+                    double amnt1=sc.nextDouble();
+                    ad.filling_cash(amnt1);
+                }
+                
            }
+           System.out.println();
+           System.out.println();
         }while(flag);              
     }
 }
