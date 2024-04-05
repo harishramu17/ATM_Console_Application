@@ -32,7 +32,7 @@ public class atm {
                 long accno1=random.nextInt(90000)+10000;
                 System.out.println("Enter your mobile number:");
                 int mobileno1=sc.nextInt();
-                long accpin1=random.nextInt(9999-1000+1)+1000;
+                int accpin1=random.nextInt(9999-1000+1)+1000;
                 System.out.println("enter initial amount to be deposited");
                 double balance1=sc.nextDouble();
                 System.out.println("Enter which bank you need:");
